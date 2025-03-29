@@ -4,6 +4,7 @@ import { useSnapshot } from 'valtio';
 import { useFrame } from '@react-three/fiber';
 import { Decal, useGLTF, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
+import { SRGBColorSpace } from 'three';
 import state from '../store';
 
 const Shirt = () => {
@@ -16,11 +17,11 @@ const Shirt = () => {
   useEffect(() => {
     if (logoTexture instanceof THREE.Texture) {
       logoTexture.anisotropy = 16;
-      logoTexture.encoding = THREE.sRGBEncoding;
+      logoTexture.colorSpace = THREE.SRGBColorSpace;
     }
     if (fullTexture instanceof THREE.Texture) {
       fullTexture.anisotropy = 16;
-      fullTexture.encoding = THREE.sRGBEncoding;
+      fullTexture.colorSpace = THREE.SRGBColorSpace;
     }
   }, [logoTexture, fullTexture]);
 
