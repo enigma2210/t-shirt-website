@@ -13,5 +13,25 @@ export default defineConfig({
         autoprefixer()
       ]
     }
+  },
+  build: {
+    // Increase chunk size warning limit (optional)
+    chunkSizeWarningLimit: 1500,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split three.js and related libraries into separate chunks
+          three: ['three', 'three-stdlib'],
+          drei: ['@react-three/drei', '@react-three/fiber'],
+          // Vendor chunk for node_modules
+          vendor: [
+            'react',
+            'react-dom',
+            'framer-motion',
+            'valtio'
+          ]
+        }
+      }
+    }
   }
 })
