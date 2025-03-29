@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { easing } from 'maath'
+// eslint-disable-next-line no-unused-vars
 import { useFrame } from '@react-three/fiber'
 import { AccumulativeShadows, RandomizedLight } from '@react-three/drei';
 
